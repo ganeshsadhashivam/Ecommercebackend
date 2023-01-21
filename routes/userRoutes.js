@@ -22,7 +22,8 @@ router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await User.findByCredentials(email, password);
-    res.json(user);
+    console.log(user);
+    res.status(200).json(user);
   } catch (e) {
     res.status(400).send(e.message);
   }
